@@ -1,0 +1,26 @@
+@import '../../styles/theme';
+
+.badge {
+  display: inline-block;
+  padding: $badge-padding;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  color: $badge-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $badge-border-radius;
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    background-color: $value;
+
+    @if $color == 'primary' {
+      color: $badge-alternate-color;
+    } @else if $color == 'danger' {
+      color: $badge-alternate-color;
+    }
+  }
+}

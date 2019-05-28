@@ -1,0 +1,80 @@
+@mixin button-variant(
+  $background,
+  $border,
+  $hover-background: darken($background, 7.5%),
+  $hover-border: darken($border, 10%),
+  $active-background: darken($background, 10%),
+  $active-border: darken($border, 12.5%)
+) {
+  background-color: $background;
+  color: choose-contrast-color($background);
+  border-color: $border;
+
+  &:hover {
+    color: choose-contrast-color($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: choose-contrast-color($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: choose-contrast-color($background);
+    background-color: $background;
+    border-color: $border;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: choose-contrast-color($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+}
+
+@mixin button-outline-variant(
+  $color,
+  $color-hover: choose-contrast-color($color),
+  $active-background: $color,
+  $active-border: $color
+) {
+  color: $color;
+  border-color: $color;
+
+  &:hover {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+
+  &:focus,
+  &.focus {
+
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $color;
+    background-color: transparent;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: choose-contrast-color($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+}
+
+@mixin button-size($padding, $font-size, $line-height, $border-radius) {
+  padding: $padding;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}

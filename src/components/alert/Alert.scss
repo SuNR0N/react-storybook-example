@@ -1,0 +1,19 @@
+@import '../../styles/theme';
+
+.alert {
+  position: relative;
+  padding: $alert-padding;
+  margin-bottom: 1rem;
+  border: $alert-border-width solid transparent;
+  border-radius: $alert-border-radius;
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(
+      $value,
+      darken($value, 15%),
+      darken($value, 30%)
+    );
+  }
+}

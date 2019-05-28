@@ -1,0 +1,52 @@
+@import '../../styles/theme';
+
+.button {
+  display: inline-block;
+  font-family: $button-font-family;
+  font-weight: $button-font-weight;
+  color: $button-color;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: $button-border-width solid transparent;
+
+  &:hover {
+    color: $button-color;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    opacity: $button-disabled-opacity;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .button-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .button-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+.button-lg {
+  @include button-size($button-padding-lg, $button-font-size-lg, $button-line-height-lg, $button-border-radius-lg);
+}
+
+.button-md {
+  @include button-size($button-padding-md, $button-font-size-md, $button-line-height-md, $button-border-radius-md);
+}
+
+.button-sm {
+  @include button-size($button-padding-sm, $button-font-size-sm, $button-line-height-sm, $button-border-radius-sm);
+}

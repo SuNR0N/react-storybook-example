@@ -1,0 +1,11 @@
+@import '../../styles/theme';
+
+.icon {
+}
+
+@each $size, $value in $icon-sizes {
+  .icon-#{$size} {
+    width: $value;
+    height: $value;
+  }
+}
